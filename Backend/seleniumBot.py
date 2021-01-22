@@ -1,16 +1,25 @@
 import selenium
-import pyrebase
+import re
+from selenium.webdriver import Chrome
 
-config = {
-    "apiKey": "AIzaSyBpxGxnrTt-2YbfjRkEVVSoJ70PNBht_RQ",
-    "authDomain": "ythighlow1.firebaseapp.com",
-    "databaseURL": "https://ythighlow1-default-rtdb.firebaseio.com",
-    "storageBucket": "ythighlow1.appspot.com",
-    "projectId": "ythighlow1"
-}
+browser = Chrome('./webdrivers/windows/chromedriver.exe')
 
-firebase = pyrebase.initialize_app(config)
-db = firebase.database()
+def scrape(url, count = 10):
+    browser.get(url)
+    raw = browser.page_source
+    print(re.findall(r"href=\"/watch\?v=\w+\"", raw)) #find all of type [href="/watch?v=]
+    
+def paramToUrl(query):
+    base = "https://www.youtube.com/results?search_query="
+    out = ""
+    for c in query:
+        if c == ' ':
+            out+="+"
+        if c.isalnum():
+            out+=c
+    return base+out
 
-print(db.child(2).get().val())
-print("test")
+
+if __name__ == '__main__':
+    print(paramToUrl("I want to goog42l1e this!"))
+    # scrape("https://www.youtube.com/results?search_query=drama")
