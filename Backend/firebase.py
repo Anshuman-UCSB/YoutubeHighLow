@@ -1,4 +1,3 @@
-import selenium
 import pyrebase
 
 config = {
@@ -12,5 +11,8 @@ config = {
 firebase = pyrebase.initialize_app(config)
 db = firebase.database()
 
-print(db.child(2).get().val())
-print("test")
+def getFromId(id):
+    return (db.child(id).get().val())
+
+if __name__ == "__main__":
+    print(getFromId(2))
