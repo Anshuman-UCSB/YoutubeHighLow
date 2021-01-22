@@ -14,8 +14,37 @@ html, body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.wrapper {
+    height: 100%;
+    position: relative;
+}
+
+.start {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#butt {
+    background-color: transparent;
+    color: black;
+    border: 2px solid #555555;
+    padding: 10px 50px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: large;
+
+}
+
+#butt:hover {
+    background-color: #555555;
+    color: white;
+}
+
 .flex-container {
-    display: flex;
+    display: none;
     flex-direction: column;
     height: 100%;
     width: 100%;
@@ -37,4 +66,22 @@ html, body {
 .teeny {
     border: 3px blue;
     padding: 10px;
+}
+
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }

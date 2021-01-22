@@ -12,6 +12,7 @@
 <body>
     <h1 id="head" class="teeny">Youtube High and Low</h1>
 
+
     <div class="flex-container">
         <div class="top-container"  id="top">
             <img class="thumb" src="Dummyone.jpg" alt="">
@@ -24,5 +25,17 @@
 
         </div>
     </div>
+
+    <div class="wrapper">
+        <button onclick="flex()" class="start" id="butt">START</button>
+    </div>
+
+    <script>
+        function flex() {
+            var x = document.getElementsByClassName("flex-container")
+            x[0].style.display = "flex"
+            document.getElementById("start").style.display = "none"
+        }
+    </script>
     </body>
 </html>
