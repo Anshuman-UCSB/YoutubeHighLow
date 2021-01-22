@@ -10,12 +10,31 @@ html, body {
 #head {
     margin: auto;
     width: 50%;
-    padding: 10px;  
     text-align: center;
+    font-family: 'Open Sans', sans-serif;
 }
 
-.container {
+.flex-container {
+    display: flex;
+    flex-direction: column;
     height: 100%;
+    width: 100%;
+    max-width: 700px;
+    max-height: 1000px;
     position: relative;
-    border: 3px solid white;
+    margin: auto;
+}
+
+.thumb {
+    width: 100%;
+}
+
+.choice {
+    height: 100%;
+    width: 100%;
+}
+
+.teeny {
+    border: 3px blue;
+    padding: 10px;
 }
