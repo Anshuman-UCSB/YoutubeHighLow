@@ -8,8 +8,15 @@ browser = Chrome('./webdrivers/windows/chromedriver.exe')
 def scrape(url, count = 10):
     browser.get(url)
     raw = browser.page_source
-    out = re.findall(r"href=\"(/watch\?v=\w+)\"", raw)[:count] #find all of type [href="/watch?v=]
+    total = re.findall(r"href=\"(/watch\?v=\w+)\"", raw) #find all of type [href="/watch?v=]
+    out = []
+    for v in total:
+        if v not in out:
+            out.append(v)
+            if(len(out) >= count):
+                return list(map(lambda x: "youtube.com"+x, out))
     return list(map(lambda x: "youtube.com"+x, out))
+        
 
 def paramToUrl(query):
     base = "https://www.youtube.com/results?search_query="
@@ -34,5 +41,5 @@ if __name__ == '__main__':
     query = input("Enter a search query:\n > ")
     urls = scrape(paramToUrl(query))
     print(urls)
-    
-    print(getThumbnailUrl("youtube.com/watch?v=bzp3vt5aGDo"))
+    print([getThumbnailUrl(url) for url in urls])
+    # print(getThumbnailUrl("youtube.com/watch?v=bzp3vt5aGDo"))
