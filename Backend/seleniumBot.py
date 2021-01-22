@@ -1,7 +1,10 @@
 import selenium
 import re
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import Chrome
+
 import firebase
 
 browser = Chrome('./webdrivers/windows/chromedriver.exe')
@@ -41,6 +44,10 @@ def getThumbnailUrl(url):
 
 def getViews(url):
     browser.get(url)
+    element = WebDriverWait(browser, 10).until(
+        EC.visibility_of_element_located((By.ID, "microformat"))
+    )
+    print(element.tag_name)
     rgx = r"\"viewCount\":\"(\d+)\""
     rgx = r"\"viewCount\":"
     
@@ -48,8 +55,8 @@ def getViews(url):
 
 def getTitle(url):
     browser.get(url)
-    title = browser.find_element_by_name("content")
-    print(title)
+    title = browser.find_element_by_name("title")
+    print(title.content)
     
 
 def toJson(title, thumbnail, views):
@@ -64,3 +71,4 @@ if __name__ == '__main__':
     # print(urls)
     # print([getThumbnailUrl(url) for url in urls])
     # getTitle("https://www.youtube.com/watch?v=eWF8jiOB9Lo")
+    browser.quit()
