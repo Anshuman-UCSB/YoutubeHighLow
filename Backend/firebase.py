@@ -11,8 +11,10 @@ config = {
 firebase = pyrebase.initialize_app(config)
 db = firebase.database()
 
-def getFromId(id):
-    return (db.child(id).get().val())
+
+def pushJson(dat):
+    db.push(dat)
+    
 
 if __name__ == "__main__":
-    print(getFromId(2))
+    pass    
