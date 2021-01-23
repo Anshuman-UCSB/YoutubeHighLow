@@ -4,37 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
-    <script type="text/javascript" src="./main.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=VT323&display=swap"
+    rel="stylesheet">
+    <script type="text/javascript" src="./main.js"></script>
     <title>YoutubeHighLow</title>
 </head>
 <body>
-    <h1 id="head" class="teeny">Youtube High and Low</h1>
-    
-
-    <div class="flex-container">
-        <div class="top-container"  id="top">
-            <img class="thumb" src="http://i3.ytimg.com/vi/EuWysx1UzpM/hqdefault.jpg" alt="" onclick="score()" id="thumbbutton">
-            <!--kinda want to move the picture when we hover instead-->
+    <div class="header">
+        <p id="grp">Cool Group</p>
+        <h1 id="title">Higher or Lower</h1>
+        <div class="score">
+            <p id="streak">Streak</p>
+            <p id="score">0</p>
         </div>
-        <div ><h2 id="head">Which is Higher?</h2></div>
-        
-        <div class="bot-container" id="bot">
-            <img class="thumb" src="http://i3.ytimg.com/vi/s1PLkVc6VlU/hqdefault.jpg" alt="" onclick="score()" id="thumbbutton">
-        </div>
-
-        <div>
-            <p>High Score: <span id="high-score"></span></p>
-            <p style="text-align:right">Current Streak:<span id="streak"></span></p>
-        </div>
-        
     </div>
-
-    <div class="wrapper">
-        <button onclick="flex()" class="start" id="butt">START</button>
+    <div class="main-container">
+        <div class="one-cont">
+            <div class="thum">
+                <img src="https://i3.ytimg.com/vi/EuWysx1UzpM/hqdefault.jpg" alt="">
+            </div>
+            <div class="details">
+                <div id="lmao">
+                    <p id="video-title">Video Title</p>
+                </div>     
+                <p id="channel">channel name</p>
+                <p id="views">Views: 0</p>
+            </div>
+        </div>
+        <div class="two-cont">
+            <div class="thum">
+                <img src="https://i3.ytimg.com/vi/EuWysx1UzpM/hqdefault.jpg" alt="">
+            </div>
+            <div class="details">
+                <div id="lmao">
+                    <p id="video-title">Video Title</p>
+                </div>
+                <p id="channel">channel name</p>
+                <p id="views">Views: 0</p>
+            </div>
+        </div>
+        <div class="tri-cont">
+           <div class="thum">
+                <img src="https://i3.ytimg.com/vi/EuWysx1UzpM/hqdefault.jpg" alt="">
+            </div>
+            <div class="details">
+                <div id="lmao">
+                    <p id="video-title">Video Title</p>
+                </div>     
+                <p id="channel">channel name</p>
+                <p id="views">Views: 0</p>
+            </div>
+        </div>
     </div>
-
     <script>
         var high_score = 0;
         var streak = 0;

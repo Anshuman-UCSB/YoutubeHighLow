@@ -1,105 +1,59 @@
-
-html, body {
-    height: 95.5%;
+body {
+    color: white;
+    background-color: mediumaquamarine;
 }
- body {
-    overflow: hidden;
-    background-color: gray;
- }
 
-#head {
-    margin: auto;
+.header {
+    position: relative;
+    display: flex;
+    border: 5px black;
+    border-style: dotted;
+    width: 100%;
+}
+
+#grp {
+   flex: 1 1 auto; 
+   font-family: 'Roboto Condensed', sans-serif;
+   font-size: 30px;
+}
+
+#title {
+    flex: 1 1 auto;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 2px;
+}
+
+.score {
+    flex: 1 1 auto;
+    border: 3px white;
+    border-style: dotted;
+    width: 10%;
+}
+.main-container {
+    display: flex;
+    border: 3px white;
+    border-style: dotted;
+    width: 100%;
+}
+
+.one-cont {
+    border: 3px black;
+    border-style: dotted;
     width: 50%;
     text-align: center;
-    font-family: 'Open Sans', sans-serif;
 }
 
-.wrapper {
-    height: 100%;
-    position: relative;
+.two-cont {
+    border: 3px black;
+    border-style: dotted;
+    width: 50%;
+    text-align: center;
 }
 
-.start {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-
-#butt {
-    background-color: transparent;
-    color: black;
-    border: 2px solid #555555;
-    padding: 10px 50px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: large;
-
-}
-
-#butt:hover {
-    background-color: #555555;
-    color: white;
-}
-
-#thumbbutton{
-    background-color: transparent;
-    border: 2px solid #555555;
-    padding: 2px 2px;
-}
-
-#thumbbutton:hover {
-    background-color: #55555567;
-}
-
-.flex-container {
+.tri-cont {
     display: none;
-    /* flex-direction: column; */
-    height: 100%;
-    width: 100%;
-    max-width: 700px;
-    max-height: 1000px;
-    position: relative;
-    margin: auto;
 }
 
-.thumb {
-    width: 100%;
-    user-drag: none; 
-    position: absolute;
-    clip: rect(45px,480px,315px,0px);
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-}
-
-.choice {
-    height: 100%;
-    width: 100%;
-}
-
-.teeny {
-    border: 3px blue;
-    padding: 10px;
-}
-
-body {
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-}
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+img {
+    vertical-align: middle;
 }
