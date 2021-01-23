@@ -43,6 +43,16 @@ html, body {
     color: white;
 }
 
+#thumbbutton{
+    background-color: transparent;
+    border: 2px solid #555555;
+    padding: 2px 2px;
+}
+
+#thumbbutton:hover {
+    background-color: #55555567;
+}
+
 .flex-container {
     display: none;
     flex-direction: column;

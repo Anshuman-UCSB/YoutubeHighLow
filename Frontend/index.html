@@ -15,21 +15,19 @@
 
     <div class="flex-container">
         <div class="top-container"  id="top">
-            <img class="thumb" src="Dummyone.jpg" alt="">
-
+            <img class="thumb" src="Dummyone.jpg" alt="" onclick="score()" id="thumbbutton">
         </div>
         <div ><h2 id="head">Which is Higher?</h2></div>
         
         <div class="bot-container" id="bot">
-            <img class="thumb" src="DummyTwo.jpg" alt="">
-
+            <img class="thumb" src="DummyTwo.jpg" alt="" onclick="score()" id="thumbbutton">
         </div>
 
         <div>
             <!--<p id="high-score" style=" position: absolute; width: 100%; text-align: left;" >High Score: 0</p>	
             <p id="streak" style=" position: absolute; width: 100%; text-align: right;">Current Streak: 0</p>-->
             
-            <button onclick="score()" class="start" id="butt"></button>
+            
             <p>High Score: <span id="high-score"></span></p>
         </div>
         
