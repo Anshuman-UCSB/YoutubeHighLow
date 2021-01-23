@@ -66,12 +66,12 @@ def getJsonFromUrl(url):
 
 def populateFromQuery(query, count=10):
     urls = scrape(paramToUrl(query), count=count)
-    print(urls)
     for url in urls:
         pushJson(getJsonFromUrl(url))
 
 
 
 if __name__ == '__main__':
-    populateFromQuery("lets play",count=10)
+    query = input("Enter some search terms: \n > ")
+    populateFromQuery(query,count=10)
     browser.quit()
