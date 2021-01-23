@@ -66,6 +66,14 @@ html, body {
 
 .thumb {
     width: 100%;
+    user-drag: none; 
+    position: absolute;
+    clip: rect(45px,480px,315px,0px);
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .choice {
