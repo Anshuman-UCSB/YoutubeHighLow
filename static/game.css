@@ -1,0 +1,23 @@
+.old{
+    border:5px black;
+    position:relative;
+    right:0px;
+}
+
+.new{
+    border:5px black;
+    position:relative;
+    left:0px;    
+}
+
+.container{
+    height: 10em;
+    width:100%;
+    align-items: center;
+    display:flex;
+}
+
+.thumbnail {
+    position: absolute;
+    clip: rect(45px,480px,315px,0px);
+}

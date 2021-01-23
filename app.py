@@ -34,11 +34,17 @@ def data():
     return render_template(
         "grid.html",
         headers = headers,
-        data = data,
-        title="Data",
-        description="List of all sourced data."
+        data = data
     )
 
+@app.route('/play')
+def game():
+    images = ("http://i3.ytimg.com/vi/EuWysx1UzpM/hqdefault.jpg",
+              "http://i3.ytimg.com/vi/s1PLkVc6VlU/hqdefault.jpg")
+    return render_template(
+        "game.html",
+        images = images
+    )
 
 
 if __name__ == '__main__':
