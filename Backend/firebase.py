@@ -17,4 +17,5 @@ def pushJson(dat):
     
 
 if __name__ == "__main__":
-    pass    
+    input("Are you sure you want to delete all entries?")
+    db.remove()

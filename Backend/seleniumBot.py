@@ -43,8 +43,8 @@ def getThumbnailUrl(url):
     imgUrl = browser.find_element_by_id("copyimageURL")
     return imgUrl.get_attribute("value")
 
-def toJson(title, thumbnail, views):
-    return {"title":title, "thumbnail":thumbnail, "views":views}
+def toJson(title, thumbnail, views, channel):
+    return {"title":title, "thumbnail":thumbnail, "views":views, "channel":channel}
 
 def getJsonFromUrl(url):
     browser.get(url)
@@ -60,15 +60,21 @@ def getJsonFromUrl(url):
     # http://i3.ytimg.com/vi/hPjfkQg0Ygs/maxresdefault.jpg
     extension = url[url.index("?v=")+3:]
 
-    thumbnailUrl = f"http://i3.ytimg.com/vi/{extension}/maxresdefault.jpg"
+    thumbnailUrl = f"http://i3.ytimg.com/vi/{extension}/hqdefault.jpg"
 
-    return toJson(title, thumbnailUrl,views)
+    
+    elem = browser.find_element_by_xpath("//*[@id=\"text\"]/a")
+    channelName = elem.text
+
+    return toJson(title, thumbnailUrl,views, channelName)
 
 def populateFromQuery(query, count=10):
     urls = scrape(paramToUrl(query), count=count)
     for url in urls:
-        pushJson(getJsonFromUrl(url))
-
+        try:
+            pushJson(getJsonFromUrl(url))
+        except:
+            pass
 
 
 if __name__ == '__main__':
