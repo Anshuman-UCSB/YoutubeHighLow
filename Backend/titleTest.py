@@ -1,4 +1,5 @@
-import seleniumBot
+from seleniumBot import *
+from firebase import *
 
 if __name__ == "__main__":
-    print("here")
+    pushJson(getJsonFromUrl("https://www.youtube.com/watch?v=a-qqio_-fQg"))

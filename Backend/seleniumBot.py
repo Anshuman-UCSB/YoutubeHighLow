@@ -4,8 +4,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import Chrome
+from time import sleep
 
-import firebase
+from firebase import *
 
 browser = Chrome('./webdrivers/windows/chromedriver.exe')
 browser.implicitly_wait(10)
@@ -19,8 +20,8 @@ def scrape(url, count = 10):
         if v not in out:
             out.append(v)
             if(len(out) >= count):
-                return list(map(lambda x: "youtube.com"+x, out))
-    return list(map(lambda x: "youtube.com"+x, out))
+                return list(map(lambda x: "https://www.youtube.com"+x, out))
+    return list(map(lambda x: "https://www.youtube.com"+x, out))
         
 
 def paramToUrl(query):
@@ -42,33 +43,35 @@ def getThumbnailUrl(url):
     imgUrl = browser.find_element_by_id("copyimageURL")
     return imgUrl.get_attribute("value")
 
-def getViews(url):
-    browser.get(url)
-    element = WebDriverWait(browser, 10).until(
-        EC.visibility_of_element_located((By.ID, "microformat"))
-    )
-    print(element.tag_name)
-    rgx = r"\"viewCount\":\"(\d+)\""
-    rgx = r"\"viewCount\":"
-    
-    print(re.match(rgx,browser.page_source))
-
-def getTitle(url):
-    browser.get(url)
-    title = browser.find_element_by_name("title")
-    print(title.content)
-    
-
 def toJson(title, thumbnail, views):
     return {"title":title, "thumbnail":thumbnail, "views":views}
 
+def getJsonFromUrl(url):
+    browser.get(url)
+    # sleep(3)
+
+    elem = browser.find_element_by_xpath("//*[@id=\"count\"]/yt-view-count-renderer/span[1]")
+    views = int("".join([c for c in elem.text if c.isnumeric()]))
+
+    elem = browser.find_element_by_xpath("//*[@id=\"container\"]/h1/yt-formatted-string")
+    title = elem.text
+
+    # https://www.youtube.com/watch?v=hPjfkQg0Ygs
+    # http://i3.ytimg.com/vi/hPjfkQg0Ygs/maxresdefault.jpg
+    extension = url[url.index("?v=")+3:]
+
+    thumbnailUrl = f"http://i3.ytimg.com/vi/{extension}/maxresdefault.jpg"
+
+    return toJson(title, thumbnailUrl,views)
+
+def populateFromQuery(query, count=10):
+    urls = scrape(paramToUrl(query), count=count)
+    print(urls)
+    for url in urls:
+        pushJson(getJsonFromUrl(url))
+
+
+
 if __name__ == '__main__':
-    # json = (toJson("test", "img.com", 4))
-    getViews("https://www.youtube.com/watch?v=_nf0CEiXhv4")
-    # firebase.pushJson(json)
-    # query = input("Enter a search query:\n > ")
-    # urls = scrape(paramToUrl(query))
-    # print(urls)
-    # print([getThumbnailUrl(url) for url in urls])
-    # getTitle("https://www.youtube.com/watch?v=eWF8jiOB9Lo")
+    populateFromQuery("lets play",count=10)
     browser.quit()
