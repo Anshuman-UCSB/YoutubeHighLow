@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+    <title>Data sets</title>
+</head>
+<body>
+    <section>
+        <!--for demo wrap-->
+        <div class="tbl-header">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+              <tr>
+                {% for header in headers%}
+                    <th>{{header}}</th>
+                {% endfor %}
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="tbl-content">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+                {% for row in data %}
+                    <tr>
+                        {% for val in row[0] %}
+                            <td>{{val}}</td>
+                        {% endfor %}
+                        <td><img src="{{row[1]}}" style="width:200px"></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+      
+</body>
+</html>
