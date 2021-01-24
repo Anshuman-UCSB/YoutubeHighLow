@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="gameover.css">
+    <link rel="stylesheet" href="static/gameover.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
@@ -14,13 +14,15 @@
         <p> GAME <br> OVER </p>
     </div>
     <div class="score">
-        <p> Score: -1 <p>
+        <p> Score: {{score}} <p>
     </div>
     <div class="best">
-        <p>Best: 400</p>
+        <p>Best: {{best}}</p>
     </div>
     <div class="restart">
-        <button id="button">Try Again</button>
+        <form method="GET" action="/play">
+            <button type="submit" id="button">Try Again</button>
+        </form>
     </div>
     
   </body>

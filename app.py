@@ -21,6 +21,7 @@ card2 = ("http://i3.ytimg.com/vi/hSAJvWYZLY0/hqdefault.jpg",
 "JohnnieVibes",
 16693)
 score = 0
+best = 0
 
 firebase = pyrebase.initialize_app(config)
 db = firebase.database()
@@ -32,6 +33,9 @@ def getData():
         out.append(((vals["channel"], vals["query"], vals["title"], vals["views"]),vals["thumbnail"]))
 
     return tuple(out)
+def grabCard():
+    json = choice([v.val() for v in db.get().each()])
+    return (json["thumbnail"],json["title"],json["channel"],json["views"])
 
 # A welcome message to test our server
 @app.route('/')
@@ -51,6 +55,10 @@ def data():
 
 @app.route('/play')
 def game():
+    global card1
+    global card2
+    card1 = grabCard()
+    card2 = grabCard()
     #for a card:
     #(imgurl, title, channel name, viewcount)
     return render_template(
@@ -60,9 +68,6 @@ def game():
         score=score
     )
 
-def grabCard():
-    json = choice([v.val() for v in db.get().each()])
-    return (json["thumbnail"],json["title"],json["channel"],json["views"])
 
 @app.route('/api')
 def api():
@@ -83,6 +88,20 @@ def api():
         card2 =grabCard()
     
     return {"correct": correct, "card1":card1, "card2":card2,"score":score}
+
+@app.route("/gameover")
+def gameover():
+    global score
+    global best
+    best = max(score, best)
+    outScore = score
+    score = 0
+
+    return render_template(
+        "gameover.html",
+        score=outScore,
+        best=best
+    )
 
 
 if __name__ == '__main__':

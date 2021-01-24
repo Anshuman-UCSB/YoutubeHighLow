@@ -1,11 +1,17 @@
-var score = 0;
+function pausecomp(millis)
+{
+    var date = new Date();
+    var curDate = null;
 
-function displayScore(){
-    
+    do { curDate = new Date(); }
+    while(curDate-date < millis);
 }
 
 function update(data){
-    if(data["correct"]){
+    document.getElementById("views2").style.display = "block"
+    setTimeout(()=>{if(data["correct"]){
+        document.getElementById("views2").style.display = "none"
+
         document.getElementById("streak").innerHTML="Streak: "+String(data["score"]);
         var card1 = data["card1"];
         document.getElementById("img1").src=card1[0]
@@ -19,7 +25,9 @@ function update(data){
         document.getElementById("channel2").innerHTML=card2[2]
         document.getElementById("views2").innerHTML=card2[3]
         
-    }
+    }else{
+        window.location.href = "http://127.0.0.1:5000/gameover"
+    }},2000)
 }
 
 $(function() {
