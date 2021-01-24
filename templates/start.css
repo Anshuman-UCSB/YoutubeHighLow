@@ -5,12 +5,10 @@ body{
 .title{
     height: auto;
     padding-top: 50px;
-    font-family: 'Noto Sans JP', sans-serif;;
-    font-size: 150px;
-    text-align: center;
-    text-shadow: 5px 5px #808080;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     background: none;
-    line-height: 150px;
 }
 
 .discription{
@@ -18,12 +16,25 @@ body{
     padding-top: 0px;
     color: #ffffff;
     font-family: 'Roboto', sans-serif;
-    font-size: 50px;
     text-align: center;
-    text-shadow: 2px 2px #000000;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    line-height: 20px;
+    text-shadow: 2px 2px #242424;
+    text-size-adjust: auto;
+}
+
+.start{
+    
+}
+
+@media screen and (max-width: 1300px){
+    .discription{
+        font-size: 3vw;
+    }
+}
+
+@media screen and (min-width: 1301px){
+    .discription{
+        font-size: 40px;
+    }
 }
 
 img {
