@@ -40,7 +40,7 @@ def grabCard():
 # A welcome message to test our server
 @app.route('/')
 def index():
-    return "<h1>Welcome to our server !!</h1>"
+    return render_template("start.html")
 
 @app.route('/data')
 def data():
