@@ -1,14 +1,18 @@
 body {
-    color: white;
-    background-color: mediumaquamarine;
+    color: #f2d492;
+    background-color: #202c39;
+    overflow: hidden;
+}
+
+p {
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .header {
-    position: relative;
-    display: flex;
-    border: 5px black;
-    border-style: dotted;
+
     width: 100%;
+    text-align: center;
+    align-items: baseline;
 }
 
 #grp {
@@ -25,35 +29,49 @@ body {
 
 .score {
     flex: 1 1 auto;
-    border: 3px white;
-    border-style: dotted;
     width: 10%;
 }
+
 .main-container {
+    color: black;
     display: flex;
-    border: 3px white;
-    border-style: dotted;
     width: 100%;
+    height: 20in;
 }
 
 .one-cont {
-    border: 3px black;
-    border-style: dotted;
     width: 50%;
     text-align: center;
+    background-color: burlywood;
 }
 
 .two-cont {
-    border: 3px black;
-    border-style: dotted;
     width: 50%;
     text-align: center;
+    background-color: hotpink;
 }
 
 .tri-cont {
     display: none;
+    width: 50%;
+    text-align: center;
+    background-color: white;
 }
 
-img {
-    vertical-align: middle;
+.lmao {
+
+    text-align: center;
+    font-size: 25px;
 }
+
+.thum {
+    width: 480px; /* width of container */
+    height: 260px; /* height of container */
+    overflow: hidden;
+    display: inline-block;
+}
+
+.thum img{
+    margin-top: -55px;
+}
+
