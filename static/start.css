@@ -5,7 +5,6 @@ body{
 .title{
     height: auto;
     padding-top: 50px;
-    display: block;
     margin-left: auto;
     margin-right: auto;
     background: none;
@@ -24,6 +23,7 @@ body{
 .start{
     position: absolute;
     left: 50%;
+    padding-top: 80px;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
@@ -48,12 +48,25 @@ body{
 }
 
 .disclamer{
-    padding-top: 50px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 @media screen and (max-width: 1300px){
     .discription{
         font-size: 3vw;
+    }
+}
+
+@media screen and (min-height: 601px){
+    .disclaimer{
+        position: absolute;
+        bottom: 5px;
+    }
+}
+
+@media screen and (max-height: 600px){
+    .disclaimer{
+        padding-top: 100px;
     }
 }
 
@@ -64,8 +77,9 @@ body{
 }
 
 img {
-    max-width: 100%;
-    height: auto;
-    width: auto;
+    display: block;
+    max-width: 100%;   
+    margin-left: auto;
+    margin-right: auto;   
     pointer-events: none
 }
