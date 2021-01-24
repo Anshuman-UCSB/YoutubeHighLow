@@ -27,12 +27,7 @@ function update(data){
         
     }else{
         console.log(window.location.href)
-        var temp = window.location.href
-        do{
-            temp.slice(-1);
-        }while(temp.charAt(temp.length-1) !== '/')
-
-        window.location.href = temp
+        window.location.href = "youtubehl.herokuapp.com/gameover"
     }},2000)
 }
 
