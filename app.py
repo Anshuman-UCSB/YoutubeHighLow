@@ -87,7 +87,8 @@ def api():
         card1 = card2
         card2 =grabCard()
     else:
-        redirect("/gameover")
+        # redirect("/gameover")
+        pass
     
     return {"correct": correct, "card1":card1, "card2":card2,"score":score}
 

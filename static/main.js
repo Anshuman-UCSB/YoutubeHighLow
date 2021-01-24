@@ -9,7 +9,11 @@ function pausecomp(millis)
 
 function update(data){
     document.getElementById("views2").style.display = "block"
-    setTimeout(()=>{if(data["correct"]){
+    setTimeout(()=>{
+        console.log(data)
+    if(data["correct"]){
+        
+        var randomColor = Math.floor(Math.random() * 16777215).toString(16);
         document.getElementById("views2").style.display = "none"
 
         document.getElementById("streak").innerHTML="Streak: "+String(data["score"]);
@@ -24,11 +28,15 @@ function update(data){
         document.getElementById("video-title2").innerHTML=card2[1]
         document.getElementById("channel2").innerHTML=card2[2]
         document.getElementById("views2").innerHTML=card2[3]
+        console.log(document.getElementById("one-cont")) //.style.backgroundColor
+        
+        document.getElementById("one-cont").style.backgroundColor = document.getElementById("two-cont").style.backgroundColor
+        document.getElementById("two-cont").style.backgroundColor = randomColor;
         
     }else{
         // window.location.replace('play', 'gameover');
         // console.log(window.location.href)
-        // window.location.href = "youtubehl.herokuapp.com/gameover"
+        window.location.href = "127.0.0.1:5000/gameover"
     }},2000)
 }
 
