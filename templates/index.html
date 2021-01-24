@@ -3,56 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="static/main.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=VT323&display=swap"
     rel="stylesheet">
-    <script type="text/javascript" src="./main.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="static/main.js"></script>
     <title>YoutubeHighLow</title>
 </head>
+
+
 <body>
-    <div class="header">
+    <div onselectstart="return false" class="header">
         <p id="grp">Higher or Lower</p>
         <h1 id="title" ></h1>
-        <p id="streak">Streak: 0</p>
+        <p id="streak">Streak: {{score}}</p>
     </div>
-    <div class="main-container">
-        <div class="one-cont">
+    <div onselectstart="return false" class="main-container">
+        <div id="one-cont">
             <div class="thum">
-                <img src="https://i3.ytimg.com/vi/EuWysx1UzpM/hqdefault.jpg" alt="">
+                <img id="img1" src="{{card1[0]}}" alt="">
             </div>
             <div class="details">
                 <div class="lmao">
-                    <p class="video-title">Video Title</p>
+                    <p id="video-title1">{{card1[1]}}</p>
                 </div>     
-                <p id="channel">channel name</p>
-                <p id="views">Views: 0</p>
+                <p id="channel1">{{card1[2]}}</p>
+                <p id="views1">Views: {{card1[3]}}</p>
             </div>
         </div>
-        <div class="two-cont">
+        <div id="two-cont">
             <div class="thum">
-                <img src="https://i3.ytimg.com/vi/EuWysx1UzpM/hqdefault.jpg" alt="">
+                <img id="img2" src="{{card2[0]}}" alt="">
             </div>
             <div class="details">
                 <div class="lmao">
-                    <p class="video-title">Video Title</p>
-                </div>
-                <p id="channel">channel name</p>
-                <p id="views">Views: 0</p>
-            </div>
-        </div>
-        <div class="tri-cont">
-           <div class="thum">
-                <img src="https://i3.ytimg.com/vi/EuWysx1UzpM/hqdefault.jpg" alt="">
-            </div>
-            <div class="details">
-                <div class="lmao">
-                    <p class="video-title">Video Title</p>
+                    <p id="video-title2">{{card2[1]}}</p>
                 </div>     
-                <p id="channel">channel name</p>
-                <p id="views">Views: 0</p>
+                <p id="channel2">{{card2[2]}}</p>
+                <p id="views2">Views: {{card2[3]}}</p>
             </div>
         </div>
+        
     </div>
     <script>
         var high_score = 0;

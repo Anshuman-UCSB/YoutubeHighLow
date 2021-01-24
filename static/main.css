@@ -2,11 +2,13 @@ body {
     color: #f2d492;
     background-color: #202c39;
     overflow: hidden;
+    cursor:default;
 }
 
 p {
     font-family: 'Roboto Condensed', sans-serif;
 }
+
 
 .header {
 
@@ -39,23 +41,18 @@ p {
     height: 20in;
 }
 
-.one-cont {
+#one-cont {
+    padding-top:10px;
     width: 50%;
     text-align: center;
     background-color: burlywood;
 }
 
-.two-cont {
+#two-cont {
+    padding-top:10px;
     width: 50%;
     text-align: center;
     background-color: hotpink;
-}
-
-.tri-cont {
-    display: none;
-    width: 50%;
-    text-align: center;
-    background-color: white;
 }
 
 .lmao {
@@ -67,11 +64,17 @@ p {
 .thum {
     width: 480px; /* width of container */
     height: 260px; /* height of container */
+    max-width: 100%;
     overflow: hidden;
     display: inline-block;
 }
 
 .thum img{
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
     margin-top: -55px;
 }
 
