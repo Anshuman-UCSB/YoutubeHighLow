@@ -36,7 +36,7 @@ function update(data){
     }else{
         // window.location.replace('play', 'gameover');
         // console.log(window.location.href)
-        window.location.href = "127.0.0.1:5000/gameover"
+        window.location = "http://127.0.0.1:5000/gameover";
     }},2000)
 }
 
