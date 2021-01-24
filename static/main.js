@@ -13,7 +13,8 @@ function update(data){
         console.log(data)
     if(data["correct"]){
         
-        var randomColor = Math.floor(Math.random() * 16777215).toString(16);
+        var randomColor = "#"+String(Math.floor(Math.random() * 16777215).toString(16));
+        // console.log(randomColor)
         document.getElementById("views2").style.display = "none"
 
         document.getElementById("streak").innerHTML="Streak: "+String(data["score"]);
@@ -28,10 +29,11 @@ function update(data){
         document.getElementById("video-title2").innerHTML=card2[1]
         document.getElementById("channel2").innerHTML=card2[2]
         document.getElementById("views2").innerHTML=card2[3]
-        console.log(document.getElementById("one-cont")) //.style.backgroundColor
-        
-        document.getElementById("one-cont").style.backgroundColor = document.getElementById("two-cont").style.backgroundColor
-        document.getElementById("two-cont").style.backgroundColor = randomColor;
+        // console.log(document.getElementById("one-cont").style) // .style.backgroundColor
+        console.log(document.getElementById("two-cont").style.background)
+        document.getElementById("one-cont").style.background = document.getElementById("two-cont").style.background
+        document.getElementById("two-cont").style.background = randomColor;
+        // document.getElementById("two-cont").style.background = "#FFF";
         
     }else{
         // window.location.replace('play', 'gameover');

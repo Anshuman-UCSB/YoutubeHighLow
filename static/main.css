@@ -1,6 +1,6 @@
 body {
     color: #f2d492;
-    background-color: #202c39;
+    background: #202c39;
     overflow: hidden;
     cursor:default;
 }
@@ -45,18 +45,17 @@ p {
     padding-top:10px;
     width: 50%;
     text-align: center;
-    background-color: burlywood;
+    background: burlywood;
 }
 
 #two-cont {
     padding-top:10px;
     width: 50%;
     text-align: center;
-    background-color: rgb(63, 62, 62);
+    background: rgb(224, 38, 38);
 }
 
 .lmao {
-
     text-align: center;
     font-size: 25px;
 }
