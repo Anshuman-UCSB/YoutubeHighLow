@@ -22,7 +22,33 @@ body{
 }
 
 .start{
-    
+    position: absolute;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#button {
+    background-color: rgba(112, 128, 144, 0.465);
+    border: none;
+    color: white;
+    border: 2px solid #555555;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    text-shadow: 1px 1px #000000;
+}
+
+#button:hover{
+    background-color: slategray;
+    color: white;
+}
+
+.disclamer{
+    padding-top: 50px;
 }
 
 @media screen and (max-width: 1300px){
