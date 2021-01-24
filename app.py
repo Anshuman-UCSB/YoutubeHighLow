@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, redirect
 from random import choice
 app = Flask(__name__)
 import pyrebase
@@ -86,6 +86,8 @@ def api():
         score+=1
         card1 = card2
         card2 =grabCard()
+    else:
+        redirect("/gameover")
     
     return {"correct": correct, "card1":card1, "card2":card2,"score":score}
 

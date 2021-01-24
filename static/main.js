@@ -26,8 +26,9 @@ function update(data){
         document.getElementById("views2").innerHTML=card2[3]
         
     }else{
-        console.log(window.location.href)
-        window.location.href = "youtubehl.herokuapp.com/gameover"
+        // window.location.replace('play', 'gameover');
+        // console.log(window.location.href)
+        // window.location.href = "youtubehl.herokuapp.com/gameover"
     }},2000)
 }
 
