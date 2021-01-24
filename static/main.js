@@ -26,7 +26,13 @@ function update(data){
         document.getElementById("views2").innerHTML=card2[3]
         
     }else{
-        window.location.href = "http://127.0.0.1:5000/gameover"
+        console.log(window.location.href)
+        var temp = window.location.href
+        do{
+            temp.slice(-1);
+        }while(temp.charAt(temp.length-1) !== '/')
+
+        window.location.href = temp
     }},2000)
 }
 
